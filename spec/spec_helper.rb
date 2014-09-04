@@ -1,4 +1,5 @@
 require 'simplecov'
+require 'pry'
 SimpleCov.start
 
 require 'vagrant'
@@ -6,7 +7,6 @@ require 'vagrant'
 Dir['lib/**/*.rb'].each {|f| require File.expand_path(f)}
 
 RSpec.configure do |config|
-  config.treat_symbols_as_metadata_keys_with_true_values = true
   config.run_all_when_everything_filtered = true
   config.filter_run :focus
 

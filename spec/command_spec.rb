@@ -4,7 +4,7 @@ describe VagrantPlugins::Selenium::Command do
   let(:subject) { described_class.new('2', 'command') }
 
   before(:each) do
-    VagrantPlugins::Selenium::OptionManager.stub_chain(:new, :execute)
+    # VagrantPlugins::Selenium::Command.stub_chain(:new)
   end
 
   describe '#execute' do
