@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/dsaenztagarro/vagrant-selenium.png)](https://travis-ci.org/dsaenztagarro/vagrant-selenium)
-[![Code Climate](https://codeclimate.com/github/dsaenztagarro/vagrant-selenium/badges/gpa.svg)]
+![Code Climate](https://codeclimate.com/github/dsaenztagarro/vagrant-selenium/badges/gpa.svg)
 
 # Vagrant::Selenium
 
