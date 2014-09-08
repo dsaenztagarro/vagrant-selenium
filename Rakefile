@@ -1,4 +1,4 @@
-require "bundler/gem_tasks"
+require 'bundler/gem_tasks'
 require 'rubocop/rake_task'
 require 'rspec/core/rake_task'
 
@@ -14,4 +14,4 @@ end
 RSpec::Core::RakeTask.new(:spec)
 
 # The default rake task should just run it all
-task :default => :spec
+task default: :spec

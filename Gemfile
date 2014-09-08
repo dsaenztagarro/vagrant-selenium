@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 gemspec
 
 group :development do
-  gem "vagrant", git: "https://github.com/mitchellh/vagrant.git", tag: 'v1.6.2'
+  gem 'vagrant', git: 'https://github.com/mitchellh/vagrant.git', tag: 'v1.6.2'
 end
 
 # Because vagrant plugin commands don't work in development, this is how you
@@ -13,5 +13,5 @@ end
 # listed in the "plugins" group. Note that this also allows you to add multiple
 # plugins to Vagrant for development, if your plugin works with another plugin.
 group :plugins do
-  gem "vagrant-selenium", path: "."
+  gem 'vagrant-selenium', path: '.'
 end
