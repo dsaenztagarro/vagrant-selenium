@@ -9,12 +9,13 @@ module VagrantPlugins
       end
 
       action_hook(:selenium, :machine_action_up) do |hook|
-        require_relative 'vagrant-selenium/install_selenium'
-        hook.after(Vagrant::Action::Builtin::Provision, Action.install_all)
+        require_relative 'vagrant-selenium/action/install'
+        hook.after(Vagrant::Action::Builtin::Provision, Action::Install)
       end
 
-      action_hook(:selenium, :machine_action_destroy) do |hook|
-        hook.prepend(Action.stop_server)
+      action_hook(:selenium, :machine_action_down) do |hook|
+        require_relative 'vagrant-selenium/action/stop_server'
+        hook.prepend(Action::StopServer)
       end
 
       command 'selenium-server' do
@@ -24,6 +25,12 @@ module VagrantPlugins
 
       I18n.load_path << File.expand_path('locales/en.yml', source_root)
       I18n.reload!
+
+      private
+
+      # def self.source_root
+      #   @source_root ||= Pathname.new(File.expand_path('../../', __FILE__))
+      # end
     end
   end
 end

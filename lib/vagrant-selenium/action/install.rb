@@ -4,7 +4,7 @@ module VagrantPlugins
       ##
       # Action class implementation for installing Selenium Server and
       # accordingly the official supported version of Firefox Browser
-      class InstallAll
+      class Install
         def initialize(app, env)
           @app = app
           @machine = env[:machine]
