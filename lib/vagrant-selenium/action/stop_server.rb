@@ -1,3 +1,5 @@
+require 'vagrant-selenium/util'
+
 module VagrantPlugins
   module Selenium
     module Action
@@ -7,10 +9,10 @@ module VagrantPlugins
       class StopServer
         def initialize(app, env)
           @app = app
-          @machine = env[:machine]
-          @global_env = @machine.env
+          @machine = env[:machine] # Vagrant::Machine
+          @env = @machine.env      # Vagrant::Environment
           @provider = @machine.provider_name
-          @config = Util.get_config(@global_env)
+          @config = Util.get_config(@env)
           @logger = Log4r::Logger.new('vagrant::selenium::stop_server')
         end
 

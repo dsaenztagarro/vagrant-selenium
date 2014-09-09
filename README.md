@@ -25,12 +25,6 @@ Or install it yourself as:
 
 TODO: Write usage instructions here
 
-## Test
-
-```shell
-bundle exec guard start
-```
-
 ## Contributing
 
 1. Fork it ( https://github.com/[my-github-username]/vagrant-selenium/fork )
@@ -38,3 +32,19 @@ bundle exec guard start
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
+
+## Development tips and tricks
+
+### Test
+
+```shell
+bundle exec guard start
+```
+
+### Debugging
+
+```
+cd test
+VAGRANT_LOG=info vagrant up | tee vagrant.log
+vagrant halt
+```

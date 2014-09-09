@@ -14,7 +14,7 @@ module VagrantPlugins
 
       action_hook(:selenium, :machine_action_up) do |hook|
         require 'vagrant-selenium/action'
-        hook.after(Vagrant::Action::Builtin::Provision, Action.install_all)
+        hook.after(Vagrant::Action::Builtin::Provision, Action.update_all)
       end
 
       action_hook(:selenium, :machine_action_down) do |hook|

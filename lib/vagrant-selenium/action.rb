@@ -5,7 +5,7 @@ require 'vagrant-selenium/action/update_web_browser'
 
 module VagrantPlugins
   module Selenium
-    class Action
+    module Action
       include Vagrant::Action::Builtin
 
       def self.update_all

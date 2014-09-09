@@ -1,3 +1,5 @@
+require 'vagrant-selenium/util'
+
 module VagrantPlugins
   module Selenium
     module Action
@@ -6,18 +8,16 @@ module VagrantPlugins
       class UpdateServer
         def initialize(app, env)
           @app = app
-          @machine = env[:machine]
-          @global_env = @machine.env
+          @machine = env[:machine] # Vagrant::Machine
+          @env = @machine.env      # Vagrant::Environment
           @provider = @machine.provider_name
-          @config = Util.get_config(@global_env)
-          @logger = Log4r::Logger.new('vagrant::selenium::install_all')
+          @config = Util.get_config(@env)
+          @logger = Log4r::Logger.new('vagrant::selenium::update_server')
         end
 
         ##
         # Method that is responsible for doing the actual work
         def call(env)
-          require 'pry'
-          binding.pry
           @logger.info 'Update Selenium Server start'
           @app.call(env)
           @logger.info 'Update Selenium Server end'
