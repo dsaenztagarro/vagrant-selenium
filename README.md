@@ -25,6 +25,9 @@ Or install it yourself as:
 
 TODO: Write usage instructions here
 
+## Test
+
+
 ## Contributing
 
 1. Fork it ( https://github.com/[my-github-username]/vagrant-selenium/fork )

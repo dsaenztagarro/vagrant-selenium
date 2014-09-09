@@ -1,8 +1,10 @@
 module VagrantPlugins
   module Selenium
     module Action
+      ##
+      # Action class implementation for stopping selenium server once the
+      # vagrant machine is stopped
       class StopServer
-
         def initialize(app, env)
           @app = app
           @machine = env[:machine]

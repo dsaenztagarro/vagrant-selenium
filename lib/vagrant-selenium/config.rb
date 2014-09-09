@@ -1,31 +1,55 @@
 module VagrantPlugins
   module Selenium
+    ##
+    # This class is the implementation of configuration keys used from
+    # Vagrantfile. Keys are accessed through configuration key ("my_key")
+    # defined in Vagrant plugin definition:
+    #
+    # config "my_key" do
+    #   require_relative "vagrant-selenium/config"
+    #   Config
+    # end
     class Config < Vagrant.plugin('2', :config)
       attr_accessor :enabled
-      attr_accessor :manage_server
+      # Selenium Server attributes
+      attr_accessor :server_enabled
       attr_accessor :server_version
-      attr_accessor :manage_browser
+      attr_accessor :server_stop_on_machine_down
+      attr_accessor :server_install_dir
+      # Browser attributes
+      attr_accessor :browser_enabled
       attr_accessor :browser_provider
       attr_accessor :browser_version
 
       def initialize
-        @enabled        = UNSET_VALUE
-        @manage_server  = UNSET_VALUE
-        @manage_browser = UNSET_VALUE
+        @enabled         = UNSET_VALUE
+        @server_enabled  = UNSET_VALUE
+        @browser_enabled = UNSET_VALUE
+
+        @server_stop_on_machine_down = UNSET_VALUE
       end
 
+      ##
+      # Method called only once ever on the final configuration object in order
+      # to set defaults
       def finalize!
-        @enabled        = false if @enabled == UNSET_VALUE
-        @manage_server  = false if @enabled == UNSET_VALUE
-        @manage_browser = false if @enabled == UNSET_VALUE
+        @enabled         = false if @enabled == UNSET_VALUE
+        @server_enabled  = false if @server_enabled == UNSET_VALUE
+        @browser_enabled = false if @browser_enabled == UNSET_VALUE
+
+        @server_stop_on_machine_down = false if
+          @server_stop_on_machine_down == UNSET_VALUE
       end
 
+      ##
+      # Method called by Vagrant for validation
+      # @param machine [Vagrant::Machine] machine managed by vagrant
       def validate(machine)
         errors = []
 
         errors << validate_bool('selenium.enabled', @enabled)
-        errors << validate_bool('selenium.manage_server', @manage_server)
-        errors << validate_bool('selenium.manage_browser', @manage_browser)
+        errors << validate_bool('selenium.server_enabled', @server_enabled)
+        errors << validate_bool('selenium.browser_enabled', @browser_enabled)
         errors.compact!
       end
 

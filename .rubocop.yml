@@ -1,2 +1,4 @@
 Style/FileName:
   Enabled: false
+RegexpLiteral:
+  Enabled: false
