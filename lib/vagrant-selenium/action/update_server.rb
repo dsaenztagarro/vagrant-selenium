@@ -2,9 +2,8 @@ module VagrantPlugins
   module Selenium
     module Action
       ##
-      # Action class implementation for installing Selenium Server and
-      # accordingly the official supported version of Firefox Browser
-      class Install
+      # Action class implementation for installing Selenium Server
+      class UpdateServer
         def initialize(app, env)
           @app = app
           @machine = env[:machine]
@@ -19,9 +18,9 @@ module VagrantPlugins
         def call(env)
           require 'pry'
           binding.pry
-          @logger.info 'Stop server init'
+          @logger.info 'Update Selenium Server start'
           @app.call(env)
-          @logger.info 'Stop server end'
+          @logger.info 'Update Selenium Server end'
         end
       end
     end

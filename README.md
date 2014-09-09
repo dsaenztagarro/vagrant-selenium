@@ -27,6 +27,9 @@ TODO: Write usage instructions here
 
 ## Test
 
+```shell
+bundle exec guard start
+```
 
 ## Contributing
 
